@@ -119,3 +119,8 @@ Node::ship Node::getRelationship(Node* other) {
     Relationship r;
     return r;
 }
+
+std::ostream& Node::print(std::ostream& out) const
+{
+  out << primaryKey;
+}
