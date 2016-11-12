@@ -69,7 +69,7 @@ public:
      * 
      * \note linear time
      */
-    Node getNodeWithRelationship(Node& n, std::string tag);
+    std::list<Node> getNodeWithRelationship(Node& n, std::string tag);
 
     /**
      * \brief finds the relationship between the two inputs

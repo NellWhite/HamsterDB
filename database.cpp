@@ -25,7 +25,7 @@ void Database::addNode(Node n)
 	hashTable_.insert(insertItr,n);
 }
 
-Node Database::getNodeWithRelationship(Node& n, std::string tag)
+std::list<Node> Database::getNodeWithRelationship(Node& n, std::string tag)
 {
 	//size_t key = hash_fn(n.primaryKey);
 	Node thisNode = hashTable_->find(n.primaryKey);
@@ -34,12 +34,19 @@ Node Database::getNodeWithRelationship(Node& n, std::string tag)
 	{
 		if (listItr->tag == tag)
 		{
-			return listItr->other;
+            // create a list of Nodes
+            auto shipList = listItr->relationshipInstances;
+            std::list<Node> nodeList;
+            for ( auto i = shipList.begin(); i != shipList.end(); ++i) {
+                nodeList.push_back(*(i->second.other));
+            }
+			return nodeList;
 		}
 	}
 	// maybe find a less sketchy thing to do if what we're looking for
 	// is not in the list?
-	return Node();
+    std::list<Node> emptyList;
+	return emptyList;
 }
 
 string Database::getRelationship(Node& n1, Node* n2)
