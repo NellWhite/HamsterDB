@@ -7,6 +7,7 @@
 */
 
 #include "database.hpp"
+#include "node.hpp"
 
 using namespace std;
 
