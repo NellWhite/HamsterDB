@@ -29,6 +29,7 @@ class Database {
 
 public:
 
+<<<<<<< HEAD
     /**
      * \brief Removes a Node from the Database
      *
@@ -78,10 +79,27 @@ public:
      * \note constant time
      */
     string getRelationship(Node& n);
+=======
+    removeNode(Node& n);
+
+    addNode(Node n);
+
+    getNodeWithRelationship(std:string tag);
+
+
+    /*
+     * \brief gets a relationship between this and another node
+     * 
+     * \returns a string with the type of the relationship
+     *
+     * \remarks this returns Null if it has no relationship with Node n
+     */
+    getRelationship(Node& n);
+>>>>>>> a47524be569398f3c13c82543657a70b2b7bb1d3
 
 
     /* 
-     * \details This creates the hash tables that allows one to query for
+     * \details This creates the hash tables that allows one to query
      *     using different fields
      */
     addType()
