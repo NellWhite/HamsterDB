@@ -95,7 +95,7 @@ public:
 private:
 
     // hash table of fields and pointers to Nodes
-    std::unordered_set<std::string,Node> hashTable_;
+    std::unordered_map<std::string,Node> hashTable_;
     //unordered_set<size_t, unordered_set<size_t,Node> > hashTable_
 };
 #endif

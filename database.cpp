@@ -21,14 +21,14 @@ void Database::removeNode(Node& n)
 void Database::addNode(Node n)
 {
 	//size_t key = hash_fn(n.primaryKey);
-	unordered_set<std::string,Node>::iterator insertItr = hashTable_.find(n.primaryKey);
-	hashTable_.insert(insertItr,n);
+	//unordered_map<std::string,Node>::iterator insertItr = hashTable_.find(n.primaryKey);
+	hashTable_.insert(std::make_pair(n.primaryKey,n));
 }
 
 std::list<Node> Database::getNodeWithRelationship(Node& n, std::string tag)
 {
 	//size_t key = hash_fn(n.primaryKey);
-	Node thisNode = hashTable_->find(n.primaryKey);
+	Node thisNode = hashTable_.find(n.primaryKey)->second;
 	list<Node::relation_type> relList = thisNode.relationships;
 	for(list<Node::relation_type>::iterator listItr = relList.begin(); listItr != relList.end(); ++listItr)
 	{
@@ -52,7 +52,7 @@ std::list<Node> Database::getNodeWithRelationship(Node& n, std::string tag)
 string Database::getRelationship(Node& n1, Node* n2)
 {
 	//size_t key = hash_fn(n1.primaryKey);
-	Node node1 = hashTable_->find(n1.primaryKey);
+	Node node1 = hashTable_.find(n1.primaryKey)->second;
 	return node1.getRelationship(n2).other->primaryKey;
 }
 
