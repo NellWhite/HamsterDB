@@ -34,7 +34,7 @@ Node Database::getNodeWithRelationship(Node& n, std::string tag)
 {
 	size_t key = hash_fn(n.primaryKey);
 	Node thisNode = hashTable_->find(key);
-	list<relation_type> relList = thisNode->relationships;
+	list<Node::relation_type> relList = thisNode.relationships;
 	for(iterator listItr = relList.begin(); listItr != relList.end(); ++listItr)
 	{
 		if (listItr->tag == tag)
@@ -42,17 +42,17 @@ Node Database::getNodeWithRelationship(Node& n, std::string tag)
 			return listItr->other;
 		}
 	}
-	return null;
+	return NULL;
 }
 
-string Database::getRelationship(Node& n1, Node& n2)
+string Database::getRelationship(Node& n1, Node* n2)
 {
-	size_t key = hash_fn(n.primaryKey);
+	size_t key = hash_fn(n1.primaryKey);
 	Node node1 = hashTable_->find(key);
 	return node1.getRelationship(n2);
 }
 
-void Database::addType()
+void Database::addType(string typeName)
 {
 
 }

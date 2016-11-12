@@ -9,6 +9,8 @@
 #ifndef DATABASE_HPP_INCLUDED
 #define DATABASE_HPP_INCLUDED 1
 
+#include "node.hpp"
+
 #include <cstddef>
 #include <string>
 #include <list>
@@ -81,18 +83,20 @@ public:
      * 
      * \note linear(?) time
      */
-    std::string getRelationship(Node& n1, Node& n2);
+    std::string getRelationship(Node& n1, Node* n2);
 
     /* 
      * \details This creates the hash tables that allows one to query
      *     using different fields
      */
-    void addType()
+    void addType(std::string typeName)
 
 
 private:
 
     // hash table of fields and pointers to Nodes
     std::hash<std::string> hash_fn;
-    unordered_set<size_t,Node> hashTable_;
+    std::unordered_set<size_t,Node> hashTable_;
+    //unordered_set<size_t, unordered_set<size_t,Node> > hashTable_
 }
+#endif
