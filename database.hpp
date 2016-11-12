@@ -69,17 +69,18 @@ public:
     Node getNodeWithRelationship(std::string tag);
 
     /**
-     * \brief finds the relationship between this and the given Node
+     * \brief finds the relationship between the two inputs
      *
-     * \details
+     * \details looks up n1 and returns its relationship to n2
      *
-     * \param n     Node to look up
+     * \param n1     Node with the relationship
+     * \param n2     Node to which teh relationship applies
      * 
      * \remarks this returns Null if it has no relationship with Node n
      * 
-     * \note constant time
+     * \note linear(?) time
      */
-    string getRelationship(Node& n);
+    string getRelationship(Node& n1, Node& n2);
 
     /* 
      * \details This creates the hash tables that allows one to query
