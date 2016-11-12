@@ -103,4 +103,19 @@ void Node::removeRelationship(Node* other, std::string tag, bool passive) {
    }
 }
 
-
+Node::ship Node::getRelationship(Node* other) {
+    for(auto i = this->relationships.begin(); i != this->relationships.end();
+                                        ++i) {
+        // check if the Node is connected by this relationship
+        // assumes only one relationship between Nodes
+        relation_type currentRel = *i;
+        if (i->relationshipInstances.find(other) 
+           != i->relationshipInstances.end()) {
+            Node::ship s = i->relationshipInstances.find(other)->second;
+            return s;
+        }
+    }
+    // a default relationship means no relationship was found
+    Relationship r;
+    return r;
+}

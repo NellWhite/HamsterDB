@@ -22,6 +22,7 @@ private:
   //   };
 
   class RelationshipType;
+  class Relationship;
   //  class RelationshipType {
   //      std::string tag;
   //      std::unordered_map<const Node*, Relationship> relationshipInstances;
@@ -31,12 +32,13 @@ private:
 public:
     
     using relation_type = RelationshipType;
+    using ship = Relationship;
 
     // data members
 
     // This is a list that contains all the relationships a Node has 
     std::list<relation_type> relationships; 
-
+    std::string primaryKey;
     
     // Functions
     
@@ -51,10 +53,16 @@ public:
 
     /* \brief This returns the relationship shared between this and Node n 
      *
-     * \remarks returns null when there is no relationship
+     * \remarks returns a default relationship when there is no relationship
      */
-    void getRelationship(Node*); 
+    ship getRelationship(Node* other); 
 
+
+    /*
+     * \brief This returns a list of Nodes with this relationship
+     *
+     */
+    std::list<Relationship> getNodesWithRel(std::string tag, bool passive); 
 
 private:
 
