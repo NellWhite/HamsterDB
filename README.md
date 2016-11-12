@@ -32,6 +32,8 @@ New Database Structure
 * What data types would the Node class have?
 * Would we have to use templated functions that can work with various subclasses of the node class?
 
+### The Node Class
+
 ```
 Node has a string datamember that is the primary key
 Node has a list of Relationship objects
@@ -42,5 +44,8 @@ Node has a function that adds relationships
 Node has a function that finds relationships
   Should also be a simple matter
 Node has a function that finds what relationship this object has to something else
-Node contains a boolean data member indicating whether it is a passive or mutual relationship
+Node contains a boolean data member indicating whether it is a passive or active relationship
+Node has a remove relationship function
 ```
+
+## How To
