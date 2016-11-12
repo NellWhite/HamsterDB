@@ -18,29 +18,28 @@ Database::Database()
 
 void Database::removeNode(Node& n)
 {
-	size_t key = hash_fn(n);
+	size_t key = hash_fn(n.primaryKey);
 	hashTable_.erase(key);
 }
 
 
 void Database::addNode(Node n)
 {
-	size_t key = hash_fn(n);
+	size_t key = hash_fn(n.primaryKey);
 	iterator insertItr = hashTable_.find(key);
 	hashTable_.insert(insertItr,n);
 }
 
-Node Database::getNodeWithRelationship(std::string tag)
+Node Database::getNodeWithRelationship(Node& n, std::string tag)
 {
-	for(iterator tableItr = hashTable_.begin(); tableItr != hashTable_.end(); ++tableItr)
+	size_t key = hash_fn(n.primaryKey);
+	Node thisNode = hashTable_->find(key);
+	list<relation_type> relList = thisNode->relationships;
+	for(iterator listItr = relList.begin(); listItr != relList.end(); ++listItr)
 	{
-		list<relation_type> relList = tableItr->relationships;
-		for(iterator listItr = relList.begin(); listItr != relList.end(); ++listItr)
+		if (listItr->tag == tag)
 		{
-			if (listItr->tag == tag)
-			{
-				return listItr->other;
-			}
+			return listItr->other;
 		}
 	}
 	return null;
@@ -48,13 +47,9 @@ Node Database::getNodeWithRelationship(std::string tag)
 
 string Database::getRelationship(Node& n1, Node& n2)
 {
-	size_t key = hash_fn(n);
+	size_t key = hash_fn(n.primaryKey);
 	Node node1 = hashTable_->find(key);
-	for(iterator listItr = relList.begin(); listItr != relList.end(); ++listItr)
-	{
-		//find person, get relationship
-	}
-	return null;
+	return node1.getRelationship(n2);
 }
 
 void Database::addType()
