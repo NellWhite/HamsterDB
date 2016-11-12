@@ -1,0 +1,2 @@
+# HamsterDB
+New Database Structure
