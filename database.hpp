@@ -58,46 +58,41 @@ public:
      *
      * \details
      *  Seaches through all the Nodes and finds the ones with a given
-     *  relationship to this object
+     *  relationship to the given node
      *
      * \param tag  the given relationship   
-
-     * \returns a Node with the given relationship to this object
+     * \param n    the given node
+     *
+     * \returns a Node with the given relationship to the given node
      * 
      * \note linear time
      */
-    Node getNodeWithRelationship(std:string tag);
+    Node getNodeWithRelationship(Node& n, std::string tag);
 
     /**
-     * \brief finds the relationship between this and the given Node
+     * \brief finds the relationship between the two inputs
      *
-     * \details
+     * \details looks up n1 and returns its relationship to n2
      *
-     * \param n     Node to look up
+     * \param n1     Node with the relationship
+     * \param n2     Node to which the relationship applies
      * 
-     * \note constant time
-     */
-    string getRelationship(Node& n);
-
-    /*
-     * \brief gets a relationship between this and another node
-     * 
-     * \returns a string with the type of the relationship
-     *
      * \remarks this returns Null if it has no relationship with Node n
+     * 
+     * \note linear(?) time
      */
-    getRelationship(Node& n);
+    std::string getRelationship(Node& n1, Node& n2);
 
     /* 
      * \details This creates the hash tables that allows one to query
      *     using different fields
      */
-    addType()
+    void addType()
 
 
 private:
 
     // hash table of fields and pointers to Nodes
-    hash<Node> nodes_;
-
+    std::hash<std::string> hash_fn;
+    unordered_set<size_t,Node> hashTable_;
 }
