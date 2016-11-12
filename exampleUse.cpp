@@ -7,15 +7,16 @@ int main()
 {
 
 class Person : public Node{
+public:
     std::string primaryKey;
     int age;
     double llamas;
-}
+};
 
 Person p;
-primaryKey = "Nelll"
-age = 12;
-llamas = 3.4;
+p.primaryKey = "Nelll"
+p.age = 12;
+p.llamas = 3.4;
 
 
 //Database d;
@@ -23,9 +24,9 @@ llamas = 3.4;
 //d.addNode(p);
 //
 Person m;
-primaryKey = "Mackenzie"
-age = 14;
-llamas = 5.2;
+p.primaryKey = "Mackenzie"
+p.age = 14;
+p.llamas = 5.2;
 //
 //d.addNode(m);
 //
