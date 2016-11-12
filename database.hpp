@@ -91,7 +91,6 @@ public:
      */
     void addType(std::string typeName);
 
-
 private:
 
     // hash table of fields and pointers to Nodes
