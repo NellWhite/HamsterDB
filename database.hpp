@@ -66,7 +66,7 @@ public:
      * 
      * \note linear time
      */
-    Node getNodeWithRelationship(std:string tag);
+    Node getNodeWithRelationship(std::string tag);
 
     /**
      * \brief finds the relationship between this and the given Node
@@ -75,29 +75,22 @@ public:
      *
      * \param n     Node to look up
      * 
+     * \remarks this returns Null if it has no relationship with Node n
+     * 
      * \note constant time
      */
     string getRelationship(Node& n);
-
-    /*
-     * \brief gets a relationship between this and another node
-     * 
-     * \returns a string with the type of the relationship
-     *
-     * \remarks this returns Null if it has no relationship with Node n
-     */
-    getRelationship(Node& n);
 
     /* 
      * \details This creates the hash tables that allows one to query
      *     using different fields
      */
-    addType()
+    void addType()
 
 
 private:
 
     // hash table of fields and pointers to Nodes
-    hash<Node> nodes_;
-
+    hash<Node> hash_fn;
+    unordered_set<size_t,Node> hashTable_;
 }
