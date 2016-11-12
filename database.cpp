@@ -60,3 +60,8 @@ void Database::addType(string typeName)
 {
 
 }
+
+Node Node::getNodeFromPrimaryKey(std::string tag) {
+    Node n = this.hashTable_.find(tag);
+    return n;
+}

@@ -91,6 +91,10 @@ public:
      */
     void addType(std::string typeName);
 
+    /*
+     * \brief This returns a Node with the given primary key
+     */
+    Node getNodeFromPrimaryKey(std::string tag);
 
 private:
 
