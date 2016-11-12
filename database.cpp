@@ -21,7 +21,7 @@ void Database::removeNode(Node& n)
 void Database::addNode(Node n)
 {
 	//size_t key = hash_fn(n.primaryKey);
-	iterator insertItr = hashTable_.find(n.primaryKey);
+	unordered_set<std::string,Node>::iterator insertItr = hashTable_.find(n.primaryKey);
 	hashTable_.insert(insertItr,n);
 }
 
