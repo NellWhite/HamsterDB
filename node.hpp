@@ -46,7 +46,7 @@ public:
     // The time scales linearly with the number of relationships this has
     void addRelationship(Node* other, std::string tag, bool passive);
 
-    // This removes relationship specified by tag and passive, whic
+    // This removes relationship specified by tag and passive, which
     // exists between this node and the given Node
     // The time scales linearly with the number of relationships this has
     void removeRelationship(Node* n, std::string tag, bool passive);

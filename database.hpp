@@ -89,14 +89,13 @@ public:
      * \details This creates the hash tables that allows one to query
      *     using different fields
      */
-    void addType(std::string typeName)
+    void addType(std::string typeName);
 
 
 private:
 
     // hash table of fields and pointers to Nodes
-    std::hash<std::string> hash_fn;
-    std::unordered_set<size_t,Node> hashTable_;
+    std::unordered_set<std::string,Node> hashTable_;
     //unordered_set<size_t, unordered_set<size_t,Node> > hashTable_
-}
+};
 #endif
