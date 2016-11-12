@@ -63,6 +63,9 @@ public:
      *
      */
     std::list<Relationship> getNodesWithRel(std::string tag, bool passive); 
+    
+    // Sometimes it is useful to print things
+    std::ostream& print(std::ostream& out) const;
 
 private:
 
