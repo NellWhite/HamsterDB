@@ -32,6 +32,16 @@ New Database Structure
 * What data types would the Node class have?
 * Would we have to use templated functions that can work with various subclasses of the node class?
 
+### The Database Class
+```
+Contains a private data member that is a standard hash table of pointers to Node objects
+Contains a public function for adding a Node object
+Contains a public function for removing a Node object
+Contains a public function for returning a particular Node object (for now, may be abstracted away)
+Contains a public function for looking up a Node based on Relationship
+Contains a public function for looking up a Relationship based on Node
+```
+
 ### The Node Class
 
 ```
