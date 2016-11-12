@@ -12,11 +12,19 @@ public:
 
     getNodeWithRelationship(std:string tag);
 
-    getRelationship(Node&);
+
+    /*
+     * \brief gets a relationship between this and another node
+     * 
+     * \returns a string with the type of the relationship
+     *
+     * \remarks this returns Null if it has no relationship with Node n
+     */
+    getRelationship(Node& n);
 
 
     /* 
-     * \details This creates the hash tables that allows one to query for
+     * \details This creates the hash tables that allows one to query
      *     using different fields
      */
     addType()
