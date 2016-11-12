@@ -7,14 +7,30 @@
 #ifndef NODE_HPP_INCLUDED
 #define NODE_HPP_INCLUDED = 1;
 
-#include <std>
-
+#include <string>
+#include <unordered_set>
+#include <unordered_map>
+#include <list>
 
 class Node {
 
+private:
+
+  //   class Relationship {
+  //      Node * other;
+  //      bool passive; // If the other node has this relationship towards this
+  //   };
+
+  class RelationshipType;
+  //  class RelationshipType {
+  //      std::string tag;
+  //      std::unordered_map<const Node*, Relationship> relationshipInstances;
+  //  };
+
+
 public:
     
-    using relation_type = RelationshipType
+    using relation_type = RelationshipType;
 
     // data members
 
@@ -26,12 +42,12 @@ public:
     
     // This adds a relationship between this and the given Node
     // The time scales linearly with the number of relationships this has
-    void addRelationship(Node* other, std::string tag);
+    void addRelationship(Node* other, std::string tag, bool passive);
 
-    // This removes whatever relationships exist between this node and the 
-    // given Node
+    // This removes relationship specified by tag and passive, whic
+    // exists between this node and the given Node
     // The time scales linearly with the number of relationships this has
-    void removeRelationship(Node* n);
+    void removeRelationship(Node* n, std::string tag, bool passive);
 
     /* \brief This returns the relationship shared between this and Node n 
      *
@@ -42,15 +58,21 @@ public:
 
 private:
 
+
     struct Relationship {
         Node * other;
         bool passive; // If the other node has this relationship towards this
-    }
-    
+    };
+
+
+    using r = Relationship;
+
     // This a struct for the relationship objects
     struct RelationshipType {
         std::string tag;
-        std::unordered_set<Node*, Relationship> relationshipInstances;
-    }
+        std::unordered_map<Node*, Relationship> relationshipInstances;
+    };
 
-}
+};
+
+#endif
