@@ -7,6 +7,7 @@ New Database Structure
 * Interpreter
 * Define file form/ syntax
 
+adfasdfasd
 ### Node Types:
 * field
 * relationship
